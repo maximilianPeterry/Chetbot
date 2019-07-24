@@ -1,23 +1,24 @@
-import React, {Component} from 'react';
-import Pusher from 'pusher-js';
+import React, { Component } from 'react';
+import Pusher from 'pusher-js'
 import './App.css';
-import { Container, Button, Link } from 'react-floating-action-button';
+import Header from './components/chatheader'
 
-// class App extends Component {
-//   constructor (props) {
-//     super(props);
-//     this.state = {
-//       userMessage: '',
-//       conversation: [],
-//     }
-//   }//end constructor
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userMessage: '',
+      conversation: [],
+    }
+  }//end constructor
 
-//   componentDidMount() {
-//     const pusher=new Pusher ('442b1855142d56793691', {
-//       cluster: 'eu',
-//       // encrypted:true,
-//       forceTLS:true,
-//     }) 
+  componentDidMount() {
+    const pusher = new Pusher('442b1855142d56793691', {
+      cluster: 'eu',
+      // encrypted:true,
+      forceTLS: true,
+    })
+
 
 //     const channel = pusher.subscribe('bot')
 //     channel.bind('bot-response', data => {
@@ -31,9 +32,11 @@ import { Container, Button, Link } from 'react-floating-action-button';
 //     })
 //   }//end componentDidMount
 
-//   handleChange = event => {
-//     this.setState({userMessage: event.target.value})
-//   }
+
+  handleChange = event => {
+    this.setState({ userMessage: event.target.value })
+  }
+
 
 //   handleSubmit = event => {
 //     event.preventDefault()
@@ -44,19 +47,21 @@ import { Container, Button, Link } from 'react-floating-action-button';
 //       user: 'human',
 //     }
 
-//     this.setState ({
-//       conversation: [...this.state.conversation, msg],
-//     })
 
-//     // fetch('http://localhost:5000/chat', {
-//     //   method: 'POST',
-//     //   headers: { 'Content-Type': 'application/json'},
-//     //   body: JSON.stringify ({
-//     //     message: this.state.userMessage,
-//     //   }),
-//     // });
+    this.setState({
+      conversation: [...this.state.conversation, msg],
+    })
 
-//     this.setState({userMessage: ''});
+    fetch('http://localhost:5000/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: this.state.userMessage,
+      }),
+    });
+
+    this.setState({ userMessage: '' });
+
 
 //   };//end handleSubmit
 
@@ -79,10 +84,12 @@ import { Container, Button, Link } from 'react-floating-action-button';
     }
 
 
+
     return (
       <div>
         <h1>React ChatBot</h1>
         <FloatButton />
+
       </div>
     )//end return
   }//end render
