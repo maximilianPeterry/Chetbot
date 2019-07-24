@@ -1,0 +1,8 @@
+npm init -y
+npm install body-parser express dialogflow pusher dotenv node-fetch cors
+work out where the react dir is going to be
+create-react-app react-bot
+cd react-bot
+npm install react
+npm install pusher-js
+set up DialogFlow
