@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Pusher from 'pusher-js'
 import './App.css';
+import Header from './components/chatheader'
 
 class App extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       userMessage: '',
@@ -12,11 +13,11 @@ class App extends Component {
   }//end constructor
 
   componentDidMount() {
-    const pusher=new Pusher ('442b1855142d56793691', {
+    const pusher = new Pusher('442b1855142d56793691', {
       cluster: 'eu',
       // encrypted:true,
-      forceTLS:true,
-    }) 
+      forceTLS: true,
+    })
 
     const channel = pusher.subscribe('bot')
     channel.bind('bot-response', data => {
@@ -31,7 +32,7 @@ class App extends Component {
   }//end componentDidMount
 
   handleChange = event => {
-    this.setState({userMessage: event.target.value})
+    this.setState({ userMessage: event.target.value })
   }
 
   handleSubmit = event => {
@@ -43,19 +44,19 @@ class App extends Component {
       user: 'human',
     }
 
-    this.setState ({
+    this.setState({
       conversation: [...this.state.conversation, msg],
     })
 
     fetch('http://localhost:5000/chat', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json'},
-      body: JSON.stringify ({
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
         message: this.state.userMessage,
       }),
     });
 
-    this.setState({userMessage: ''});
+    this.setState({ userMessage: '' });
 
   };//end handleSubmit
 
@@ -68,25 +69,26 @@ class App extends Component {
       ) //end return
     }//end ChatBubble
 
-    const chat=this.state.conversation.map((e, index) => 
+    const chat = this.state.conversation.map((e, index) =>
       ChatBubble(e.text, index, e.user)
     );
 
     return (
       <div>
 
+        <Header />
         <h1>React ChatBot</h1>
         <div className="chat-window">
           <div className="conversation-view">{chat}</div>
           <div className="message-box">
             <form onSubmit={this.handleSubmit}>
               <input
-                  value={this.state.userMessage}
-                  onInput={this.handleChange}
-                  className="text-input"
-                  type="text"
-                  autoFocus
-                  placeholder="Type your message and hit Enter to send"
+                value={this.state.userMessage}
+                onInput={this.handleChange}
+                className="text-input"
+                type="text"
+                autoFocus
+                placeholder="Type your message and hit Enter to send"
               />
             </form>
           </div>
