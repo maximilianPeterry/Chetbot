@@ -1,0 +1,35 @@
+#navCont {
+    background-color: #DDDDDD;
+    display: flex;
+}
+
+#nav {
+    height: 8vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+/* #left {
+    width: 60%;
+}
+
+#right {
+    width: 40%;
+} */
+
+#backicon {
+    /* padding-left: 20px; */
+    position: absolute;
+    top: 2.8vh;
+    left: 5vw;
+}
+
+#chattingWith {
+    margin: 0;
+    color: #00A04B;
+}
