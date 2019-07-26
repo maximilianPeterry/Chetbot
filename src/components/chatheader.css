@@ -1,6 +1,11 @@
 #navCont {
     background-color: #DDDDDD;
     display: flex;
+    height: 8vh;
+    width: 100%;
+    position: -webkit-sticky;
+    position: fixed;
+    top:0;
 }
 
 #nav {
@@ -11,8 +16,6 @@
     align-items: center;
     text-align: center;
 }
-
-
 
 /* #left {
     width: 60%;
