@@ -1,0 +1,25 @@
+.chat{
+    width: 120px;
+    height: 70px;
+    display: flex;  
+}
+
+.circle{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 0;
+    background-color:rgb(3, 179, 3);
+}
+
+.textLevel{
+    background-color: grey;
+    position: relative;
+    border-radius: 20%;
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 70%;
+    height: 40%;
+    z-index: 1;
+}

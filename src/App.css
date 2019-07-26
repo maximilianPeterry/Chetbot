@@ -1,0 +1,30 @@
+#container {
+  width: 100vw;
+  height: 100vh;
+  border: 20px;
+}
+
+#navBar {
+  height: 7vh;
+  width: 100vw;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+#hamburger {
+  padding-right: 8vw;
+}
+
+#bg {
+  width: 100vw;
+}
+
+#benjamin {
+  position: absolute;
+  left: 2vw;
+  top: 69vh;
+  border:solid;
+  /* bottom: 20vh; */
+}

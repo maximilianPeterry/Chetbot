@@ -32,6 +32,13 @@
     left: 5vw;
 }
 
+#FAQbutton {
+    /* padding-left: 20px; */
+    position: absolute;
+    top: 2.8vh;
+    right: 15vw;
+}
+
 #chattingWith {
     margin: 0;
     color: #00A04B;

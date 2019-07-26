@@ -68,15 +68,6 @@ class ChatApp extends React.Component {
     };//end handleSubmit
 
     render() {
-
-        // const ChatBubble = (text, i, className) => {
-        //     return (
-        //       <div key={`${className}-${i}`} className={`${className} chat-bubble`}>
-        //         <span className="chat-content">{text}</span>
-        //       </div>
-        //     ) //end return
-        // }//end ChatBubble
-
         const ChatBubble = (text, i, className) => {
           return (
             <div key={`${className}-${i}`} className={`${className} chat-bubble`}>
@@ -91,7 +82,7 @@ class ChatApp extends React.Component {
 
         return (
             <div className='container'>
-                <div><Header /></div>
+                <div><Header clicked={this.props.clicked}/></div>
                 <div className='conversation-view'>{chat}</div>
                 <div ref={(el) => {this.messageEnd = el}}>messageEnd</div>
                 <div className='message-box'>
