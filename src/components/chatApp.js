@@ -10,6 +10,14 @@ class ChatApp extends React.Component {
         conversation: [],
     }
 
+    autoScroll = () => {
+      this.messageEnd.scrollIntoView(false, {behaviour: 'smooth'})
+    }
+
+    componentDidUpdate() {
+      this.autoScroll()
+    }
+
     componentDidMount() {
         const pusher=new Pusher ('442b1855142d56793691', {
           cluster: 'eu',
@@ -27,6 +35,7 @@ class ChatApp extends React.Component {
             conversation: [...this.state.conversation, msg],
           })
         })
+        this.autoScroll()
     }//end componentDidMount
       
     handleChange = event => {
@@ -59,13 +68,12 @@ class ChatApp extends React.Component {
     };//end handleSubmit
 
     render() {
-
         const ChatBubble = (text, i, className) => {
-            return (
-              <div key={`${className}-${i}`} className={`${className} chat-bubble`}>
-                <span className="chat-content">{text}</span>
-              </div>
-            ) //end return
+          return (
+            <div key={`${className}-${i}`} className={`${className} chat-bubble`}>
+              <span className="chat-content">{text}</span>
+            </div>
+          ) //end return
         }//end ChatBubble
 
         const chat=this.state.conversation.map((e, index) => 
@@ -74,8 +82,9 @@ class ChatApp extends React.Component {
 
         return (
             <div className='container'>
-                <div><Header /></div>
+                <div><Header clicked={this.props.clicked}/></div>
                 <div className='conversation-view'>{chat}</div>
+                <div ref={(el) => {this.messageEnd = el}}>messageEnd</div>
                 <div className='message-box'>
                     <form onSubmit={this.handleSubmit}>
                         <input 
@@ -84,7 +93,7 @@ class ChatApp extends React.Component {
                             className='text-input'
                             type='text'
                             autoFocus
-                            placeholder='Type a message...'
+                            placeholder='How can I help ...'
                         />
                     </form>
                 </div>
