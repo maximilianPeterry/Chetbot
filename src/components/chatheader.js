@@ -1,7 +1,7 @@
 import React from 'react';
 import BackIcon from './Path 6.svg'
 import './chatheader.css'
-import clickIt from '../App'
+
 
 
 class Header extends React.Component {
