@@ -5,7 +5,7 @@
     width: 100%;
     position: -webkit-sticky;
     position: fixed;
-    top:0;
+    top: 0;
 }
 
 #nav {
@@ -17,14 +17,6 @@
     text-align: center;
 }
 
-/* #left {
-    width: 60%;
-}
-
-#right {
-    width: 40%;
-} */
-
 #backicon {
     /* padding-left: 20px; */
     position: absolute;
@@ -33,13 +25,37 @@
 }
 
 #FAQbutton {
-    /* padding-left: 20px; */
     position: absolute;
-    top: 2.8vh;
-    right: 15vw;
+    top: 2.6vh;
+    right: 5vw;
+    font-size: 2vh;
+    color: #4c9689;
+    background-color: inherit;
+    border: none;
 }
 
 #chattingWith {
     margin: 0;
     color: #00A04B;
+    font-size: 3vh;
+    font-weight: 350;
+}
+
+@media only screen and (min-width:1000px) {
+    #navCont {
+        width: 375px;
+    }
+
+    #backicon {
+        position: absolute;
+        top: 3vh;
+        left: 2vw;
+    }
+
+    #FAQbutton {
+        position: absolute;
+        top: 3vh;
+        right: 2vw;
+    }
+
 }

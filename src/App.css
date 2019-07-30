@@ -21,10 +21,24 @@
   width: 100vw;
 }
 
+#bg2 {
+  display: none;
+}
+
 #benjamin {
   position: absolute;
   left: 2vw;
-  top: 69vh;
-  border:solid;
-  /* bottom: 20vh; */
+  top: 9vh;
+  border: none;
+}
+
+@media only screen and (min-width:1000px) {
+  #bg2 {
+    display: block;
+    width: 100vw;
+  }
+
+  #bg {
+    display: none;
+  }
 }

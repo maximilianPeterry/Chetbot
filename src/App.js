@@ -3,6 +3,7 @@ import './App.css';
 import chatme from './components/chatIcon.svg'
 import hamburger from './components/hamburger.svg'
 import bg from './components/bg.png'
+import bg2 from './bg22.png'
 import ChatApp from './components/chatApp'
 
 class BasePage extends React.Component {
@@ -10,9 +11,9 @@ class BasePage extends React.Component {
     clicked: false
   }
 
-clickIt = () => {
-  let myState = this.state.clicked;
-   this.setState({clicked: !myState})
+  clickIt = () => {
+    let myState = this.state.clicked;
+    this.setState({ clicked: !myState })
   }
 
   render() {
@@ -24,13 +25,14 @@ clickIt = () => {
         </nav>
         <div id='landingPage'>
           <img id='bg' src={bg} alt='' />
+          <img id='bg2' src={bg2} alt='' />
         </div>
         <img id='benjamin' src={chatme} onClick={() => this.clickIt()} alt='HITS ALT' />
-        {this.state.clicked ? <ChatApp clicked={this.clickIt}/> : <p></p>}
+        {this.state.clicked ? <ChatApp clicked={this.clickIt} /> : <p></p>}
       </div>
     )
   }
 }
 
-export  default BasePage 
+export default BasePage
 
